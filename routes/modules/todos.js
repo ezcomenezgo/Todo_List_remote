@@ -32,7 +32,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, isDone } = req.body
-  // console.log(req.body)
+  console.log(req.body.name)
   return Todo.findById(id)
     .then(todo => {
       todo.name = name
@@ -40,7 +40,7 @@ router.put('/:id', (req, res) => {
       return todo.save()
     })
     .then(() => res.redirect(`/todos/${id}`))
-    .catch(error => console.log(errors))
+    .catch(error => console.log(error))
 })
 
 router.delete('/:id', (req, res) => {

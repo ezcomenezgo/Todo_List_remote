@@ -7,7 +7,7 @@ const methodOverride = require('method-override') // 載入method-override
 const routes = require('./routes') // 引用路由器
 require('./config/mongoose')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
